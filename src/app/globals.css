@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #0A0A0F;
+  --bg-surface: #111118;
+  --bg-elevated: #1A1A26;
+  --bg-subtle: #1E1E2E;
+  --border-default: #2A2A3D;
+  --border-subtle: #1E1E2E;
+  --border-glow: rgba(139, 92, 246, 0.4);
+  --accent-primary: #8B5CF6;
+  --accent-secondary: #6D28D9;
+  --accent-glow: rgba(139, 92, 246, 0.15);
+  --accent-gradient: linear-gradient(135deg, #8B5CF6, #6366F1);
+  --text-primary: #F4F4F8;
+  --text-secondary: #9090A8;
+  --text-tertiary: #5A5A72;
+  --text-on-accent: #FFFFFF;
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --info: #38BDF8;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Geist Mono', 'Courier New', monospace;
+}
+
+[data-theme="light"] {
+  --bg-base: #FAFAFA;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #F4F4F8;
+  --bg-subtle: #EEEEFC;
+  --border-default: #E2E2EE;
+  --border-subtle: #F0F0F8;
+  --border-glow: rgba(139, 92, 246, 0.3);
+  --accent-primary: #7C3AED;
+  --accent-secondary: #6D28D9;
+  --accent-glow: rgba(124, 58, 237, 0.1);
+  --text-primary: #0A0A0F;
+  --text-secondary: #606078;
+  --text-tertiary: #A0A0B8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-family: var(--font-sans); }
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-in { animation: fadeUp 0.25s ease forwards; }
+.skeleton   { animation: pulse 1.5s ease infinite; background: var(--bg-subtle); border-radius: var(--radius-md); }
+.spinner    { animation: spin 0.8s linear infinite; }
+
+/* Stagger utility pour les grilles */
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 50ms; }
+.stagger > *:nth-child(3) { animation-delay: 100ms; }
+.stagger > *:nth-child(4) { animation-delay: 150ms; }
+.stagger > *:nth-child(5) { animation-delay: 200ms; }
+.stagger > *:nth-child(6) { animation-delay: 250ms; }
+.stagger > *:nth-child(7) { animation-delay: 300ms; }
+.stagger > *:nth-child(8) { animation-delay: 350ms; }
+.stagger > *:nth-child(9) { animation-delay: 400ms; }
+.stagger > *:nth-child(10){ animation-delay: 450ms; }
+.stagger > *:nth-child(n+11){ animation-delay: 500ms; }
